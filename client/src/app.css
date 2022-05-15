@@ -1,0 +1,506 @@
+:root {
+    --sidebar-width: 240px;
+    --text-color: rgb(50, 50, 50);
+    --background-color: #ffffff;
+    --light-background-color: #f4f4f4;
+    --nav-bar-color: #ffffff;
+    --selected-color: rgb(229, 241, 253);
+    --action-text-color: #ffffff;
+    --action-color: rgb(58, 99, 197);
+    --border-color: darkgray;
+}
+
+
+html{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+
+.material-icons {
+    position: relative;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+button, input[type=submit]  {
+    cursor: pointer;
+}
+
+textarea:focus, input:focus {
+    outline: none;
+}
+
+textarea{
+    font-family: 'Courier New';
+    padding: 10px 5px;
+}
+
+.row {
+    display: flex;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+}
+
+.row2 {
+    position: absolute;
+    display: flex;
+    top: 50px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.main {
+    background: var(--background-color);
+    border-bottom: 1px solid var(--border-color);
+    flex: auto;
+}
+
+.main2{
+    background: var(--background-color);
+    border-bottom: 1px solid var(--border-color) ;
+    flex: auto;
+    display: none;
+}
+
+.logo {
+    background: var(--background-color);
+    width : var(--sidebar-width);
+    border-bottom: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+}
+
+.profile{
+    width : 40px;
+    height : 40px;
+    border-radius: 70%;
+    position: relative;
+    top: 50%;
+    left: 25px;
+    transform: translate(-50%, -50%);
+    float:left;
+    cursor: pointer;
+}
+
+.title{
+    font-weight: bold;
+    font-size: 1em;
+    position: relative;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+}
+
+.text {
+    background: var(--background-color);
+    flex: auto;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    width:var(--sidebar-width);
+}
+.textF{
+    display: none;
+}
+.sidebar {
+    background: var(--background-color);
+    width : var(--sidebar-width);
+    border-right: 1px solid var(--border-color);
+}
+.sidebar2 {
+    display: none;
+}
+
+.searchbar{
+    height: 50px;
+    border-bottom: 1px dotted black;
+}
+
+.noteList {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.emptyList{
+    display: none;
+}
+
+.emptytextfield{
+    display: none;
+}
+
+.listed {
+    padding: 8px 4px;
+    height: 50px;
+    border-bottom: 1px dotted black;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.listed.on{
+    background: rgb(229, 241, 253);
+}
+
+.listed.sim{
+    background-color: #dddddd;
+}
+
+.similar{
+    display: none;
+}
+.similar.on{
+    color: red;
+    display: inline-block;
+    float: right;
+    position: relative;
+}
+
+.note {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.curdate{
+    position: relative;
+    display: inline-block;
+    font-size: 0.6em;
+}
+
+.notesearch{
+    position: relative;
+    border: none;
+    top: 5px;
+    left: 10px;
+}
+
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Full-width input fields */
+input[type=text], select{
+    border: 1px solid black;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 12px 0;
+    display: inline;
+}
+
+
+
+
+
+.select{
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 12px 0;
+    display: inline;
+}
+
+
+/* Set a style for all buttons */
+button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+button:hover {
+    opacity:1;
+}
+
+
+/* Float cancel and signup buttons and add an equal width */
+.savebtn{
+    border-radius: 10px;
+    color: white;
+    background: cornflowerblue;
+    width:100px;
+}
+
+/* Add padding to container elements */
+.container {
+    padding: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: block; /* Hidden by default */
+    position: fixed;
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: hidden; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.7);
+    padding-top: 50px;
+
+}
+.closemodal {
+    display: none;
+}
+
+
+/* Modal Content/Box */
+.modal-content {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    border-radius: 25px;
+    border: 1px solid #ffffff;
+    width: 500px; /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+/* The Close Button (x) */
+.close {
+    position: relative;
+    float:right;
+    left: 300px;
+    font-size: 40px;
+    color: black;
+}
+
+.close:hover,
+.close:focus {
+    color: #f44336;
+    cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: flex;
+}
+
+.prof,
+.editp,
+.clearfix{
+    display:flex;
+}
+
+.newimg{
+    position: relative;
+    top: 15px;
+    transform: translate(-50%, -50%);
+    left: 40%;
+}
+
+.removeimg{
+    position: relative;
+    top: 15px;
+    transform: translate(-50%, -50%);
+    left: 50%;
+}
+
+.logout{
+    position: relative;
+    left: 60%;
+    background-color: indianred;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 80px;
+    opacity: 0.9;
+    border-radius: 5px;
+}
+
+.tagDiv{
+    background-color: lightgray;
+}
+
+.container {
+    margin: 10px;
+    width: 90%;
+}
+.ReactTags__tags {
+    margin: 5px;
+    position: relative;
+}
+
+
+.ReactTags__tagInput {
+    border-radius: 2px;
+    display: inline-block;
+}
+
+.ReactTags__tagInput input.ReactTags__tagInputField,
+.ReactTags__tagInput input.ReactTags__tagInputField:focus {
+    height: 31px;
+    margin: 5px;
+    font-size: 12px;
+    border: 1px solid #eee;
+    min-width: 150px;
+
+}
+
+.ReactTags__editInput {
+    border-radius: 1px;
+}
+
+.ReactTags__editTagInput {
+    display: inline-flex;
+}
+
+
+
+.ReactTags__selected span.ReactTags__tag {
+    border: 1px solid #ddd;
+    background: dimgray;
+    color: white;
+    font-size: 12px;
+    display: inline-flex;
+    padding: 8px;
+    margin: 5px;
+    border-radius: 2px;
+    height: 31px;
+}
+.ReactTags__selected span.ReactTags__tag:first-child {
+    margin-left: 0;
+}
+.ReactTags__selected a.ReactTags__remove {
+    color: #aaa;
+    cursor: pointer;
+}
+
+.ReactTags__remove {
+    border: none;
+    cursor: pointer;
+    background: none;
+    color: white;
+    margin: 0 5px;
+    padding: 3px;
+
+}
+
+.logo2{
+    display: none;
+}
+
+/* These rules only apply if the window's max-width is 500px or less */
+@media all and (min-width: 501px) {
+    .sidebar{
+        display:block;
+    }
+    .sidebar2T{
+        display: none;
+    }
+    .text{
+        display: flex;
+    }
+    .textF{
+        display: none;
+    }
+    .logo2T{
+        display: none;
+    }
+    .main2T{
+        display: none;
+    }
+}
+
+input[type="file"] {
+    display: none;
+}
+
+@media all and (max-width: 500px) {
+    .logo {
+        display: none;
+    }
+    .sidebar{
+        display: none;
+    }
+    .logo2{
+        display: none;
+    }
+    .logo2T{
+        background: var(--background-color);
+        width : 500px;
+        border-bottom: 1px solid var(--border-color);
+        border-right: 1px solid var(--border-color);
+        overflow: hidden;
+    }
+    .sidebar2{
+        display: none;
+    }
+    .sidebar2T{
+        width: 500px;
+        background-color: white;
+        overflow: hidden;
+    }
+    .main{
+        display: none;
+    }
+    .main2{
+        display: block;
+    }
+    .main2T{
+        display: none;
+    }
+    .textF{
+        display: none;
+    }
+
+    /* The Modal (background) */
+    .modal {
+        display: block; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        padding-top: 50px;
+        background: #ffffff;
+
+    }
+
+    .closemodal {
+        display: none;
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+        position:fixed;
+        top: 50%;
+        background-color: #ffffff;
+        width: 100%; /* Could be more or less, depending on screen size */
+        height: 100%;
+    }
+
+
+}
+
+

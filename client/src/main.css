@@ -1,0 +1,111 @@
+html{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: lightgray;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.maintitle {
+    font-size: 3em;
+    padding-top: 100px;
+    text-align: center;
+}
+.mainsubtitle {
+    font-size: 1.5em;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+.inputcontainer {
+    background-color: white;
+    border-radius: 10px;
+    margin: auto;
+    width: 500px;
+    padding: 50px;
+}
+
+input[type=text],input[type=password], select{
+    border: 1px solid black;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 12px 0;
+    display: inline;
+}
+
+.nonE{
+    display: none;
+}
+
+.yesE{
+    display: block;
+    color: red;
+}
+
+/* The Modal (background) */
+.modal {
+    display: block; /* Hidden by default */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: hidden; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.7);
+    padding-top: 50px;
+
+}
+.closemodal {
+    display: none;
+}
+
+
+/* Modal Content/Box */
+.modal-content {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    border-radius: 25px;
+    border: 1px solid #ffffff;
+    width: 500px; /* Could be more or less, depending on screen size */
+}
+
+@media all and (max-width: 500px) {
+
+    /* The Modal (background) */
+    .modal {
+        display: block; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        padding-top: 50px;
+        background: #ffffff;
+
+    }
+
+    .closemodal {
+        display: none;
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+        position:fixed;
+        top: 50%;
+        background-color: #ffffff;
+        width: 100%; /* Could be more or less, depending on screen size */
+        height: 100%;
+    }
+
+
+}
