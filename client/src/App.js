@@ -1,7 +1,5 @@
 import {Route, Redirect, Switch} from 'react-router-dom';
-import Notepage from "./Note";
-import Mainpage from "./Main";
-import './app.css';
+import Editpage from "./Edit";
 import React from "react";
 
 const NoMatch = ({location}) => (
@@ -17,11 +15,10 @@ function App() {
     return (
         <div className="App">
             <Switch>
-                <Route path='/mainpage' component={Mainpage}/>
-                <Route path='/notepage' component={Notepage}/>
+                <Route path='/editpage' component={Editpage}/>
                 <Route exact path='/' render={() => (
                     <Redirect
-                        to='/mainpage'
+                        to='/editpage'
                     />
                 )}/>
                 <Route component={NoMatch}/>
