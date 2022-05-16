@@ -35,10 +35,12 @@ body {
     text-align: center;
 }
 .mainsubtitle {
+    display: inline-block;
     font-size: 1.5em;
     padding-top: 20px;
-    padding-bottom: 30px;
-    text-align: center;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    text-align: left;
 }
 
 .inputcontainer {
@@ -88,6 +90,6 @@ input[type=text],input[type=password]{
     background-color: white;
     border-radius: 5px;
     margin: 5px;
-    width: 90%;
+    width: 96%;
     padding: 10px;
 }

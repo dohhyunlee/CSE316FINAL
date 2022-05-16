@@ -5,21 +5,21 @@ const defaultHeaders = {
 }
 
 // More on the fetch method: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
-export const getNotesAPIMethod = () => {
+export const getQAPIMethod = () => {
     return fetch(`/api/notes`, {
         ...defaultHeaders,
     }).then(checkStatus)
         .then(parseJSON);
 }
 
-export const getNoteByIdAPIMethod = (noteId) => {
+export const getQByIdAPIMethod = (noteId) => {
     return fetch(`/api/notes/${noteId}`, {
         ...defaultHeaders,
     }).then(checkStatus)
         .then(parseJSON);
 }
 
-export const updateNoteAPIMethod = (note) => {
+export const updateQAPIMethod = (note) => {
     return fetch(`/api/notes/${note._id}`, {
         ...defaultHeaders,
         method: 'PUT', // The method defaults to GET
@@ -27,7 +27,7 @@ export const updateNoteAPIMethod = (note) => {
     }).then(checkStatus);
 }
 
-export const deleteNoteByIdAPIMethod = (note) => {
+export const deleteQByIdAPIMethod = (note) => {
     console.log("delete");
     console.log(`/api/notes/${note._id}`);
     return fetch(`/api/notes/${note._id}`, {
@@ -37,7 +37,7 @@ export const deleteNoteByIdAPIMethod = (note) => {
         .then(parseJSON);
 }
 
-export const createNotesAPIMethod = (note) => {
+export const createQAPIMethod = (note) => {
     return fetch(`/api/notes`, {
         ...defaultHeaders,
         method: 'POST', // The method defaults to GET

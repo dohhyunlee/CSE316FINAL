@@ -1,32 +1,65 @@
 import React, {useEffect, useState} from "react";
 import profilepic from "./simpson.jpg";
 import "./edit.css"
+import {
+    getQAPIMethod,
+    createQAPIMethod,
+    deleteQByIdAPIMethod,
+    updateQAPIMethod,
+}    from "./api/client";
 
 function Edit(){
 
     const [questions,setQuestions] = useState([]);
 
     useEffect(()=>{
-        const q = [];
-        const q1 = {
-            text: "some text",
-            type: "1",
-            date: Date(),
-            answer: "3",
-        };
-        const q2 = {
-            text: "some text2",
-            type: "2",
-            date: Date(),
-            answer: "1",
-        }
-
-        q.push(q1);
-        q.push(q2);
-        setQuestions(q);
+            const q1 = {
+                text: "New Question",
+                type: "1",
+                date: Date(),
+                answer: "",
+            }
+            const q = [];
+            q.push(q1);
+            setQuestions(q);
         },
         []
     )
+
+    const insertQuestion = () => {
+        const newQ = {
+            text: "New Question",
+            type: "1",
+            date: Date(),
+            answer: "",
+        }
+        const clonedData = [...questions];
+        clonedData.push(newQ);
+        setQuestions(clonedData);
+        console.log("inserted");
+        console.log(questions);
+        console.log(clonedData);
+    };
+
+    const deleteQuestion = (q) => {
+        const clonedData = [...questions];
+        const index = clonedData.indexOf(q);
+        if (index > -1) {
+            clonedData.splice(index, 1);
+        }
+        setQuestions(clonedData);
+    }
+
+    const handletext = (e, i) => {
+        const clonedData = [...questions];
+        clonedData[i].text = e.target.value;
+        setQuestions(clonedData);
+    };
+    const handletype = (e, i) => {
+        const clonedData = [...questions];
+        clonedData[i].type = e.target.value;
+        setQuestions(clonedData);
+    };
 
     return (
         <div className="mainpagediv">
@@ -38,24 +71,24 @@ function Edit(){
                 <img src={profilepic} className="profile" alt="MyImage"></img>
             </div>
             <div className="maincontainer">
-                <div className="searchbar">
-                    <div>Edit Questions</div>
-                    <span className="material-icons">add_circle_outline</span>
+                <div>
+                    <div className="mainsubtitle">Edit Questions</div>
+                    <span className="material-icons" onClick={insertQuestion} style={{float: 'right',right:'15px', top:"25px"}}>add_circle_outline</span>
                 </div>
                 <div className="questions">
-                    {questions.map((question) => (
+                    {questions.map((q,i) => (
                         <div className="qcontainer">
                             <div>
-                                <input type="text" value={question.text} name="text" required/>
+                                <input type="text" value={q.text} onChange={(e) => handletext(e, i)} name="text" required/>
                             </div>
                             <div>
-                                <select className="select" value={question.type}>
+                                <select className="select" onChange={(e) => handletype(e, i)} value={q.type}>
                                     <option value="1">number</option>
                                     <option value="2">boolean</option>
                                     <option value="3">text</option>
                                     <option value="4">multiple choice</option>
                                 </select>
-                                <span className="material-icons" style={{float: 'right',right:'15px',top:'15px'}}>delete_outline</span>
+                                <span className="material-icons" onClick={deleteQuestion(q)} style={{float: 'right',right:'15px',top:'15px'}}>delete_outline</span>
                             </div>
                         </div>
                     ))}

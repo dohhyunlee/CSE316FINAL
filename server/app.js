@@ -4,6 +4,9 @@ const userRoutes = require('./routes/users');
 const Note = require('./models/note');
 const notesRouter = require('./routes/notes');
 
+const Question = require('./models/question');
+const questionsRouter = require('./routes/questions');
+
 const app = express();
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -13,7 +16,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo'); // MongoDB session store
 
 //Set up mongoose connection
-var dbURL = process.env.MONGO_URL || 'mongodb+srv://dohhyunlee:dohhyunlee@notecluster.sqf6z.mongodb.net/noteDB'; // insert your database URL here
+var dbURL = process.env.MONGO_URL || 'mongodb://localhost:27017/LoggerDB';
 mongoose.connect(dbURL, {useNewUrlParser: true, useUnifiedTopology: true});
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -59,6 +62,7 @@ app.use((req, res, next) => {
 
 app.use('/api', notesRouter);
 app.use('/api', userRoutes);
+app.use('/api', questionsRouter);
 
 app.use((err, req, res, next) => {
     console.log("Error handling called " + err);
